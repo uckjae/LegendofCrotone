@@ -2,6 +2,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 import javax.tools.FileObject;
 
@@ -14,6 +15,32 @@ public class Game {
 	FileInputStream fis = null;//저장 불러오기를 위한 클래스
 	ObjectOutputStream oos = null;//저장 불러오기를 위한 클래스
 	ObjectInputStream ois = null;//저장 불러오기를 위한 클래스
+	
+	//옵저버 패턴
+	private ArrayList<Observer> observers = new ArrayList();
+	public void addObserver(Observer observer) {
+		observers.add(observer);
+	}
+	public void removeObserver(Observer observer){
+	    observers.remove(observer);
+	}
+	public void notifyObserver() {
+		for(Observer o:observers) {
+			o.update(this);
+		}
+	}
+		
+	public Character getCharacter() {
+		return character;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	void gStrart(){//게임실행함수
 		

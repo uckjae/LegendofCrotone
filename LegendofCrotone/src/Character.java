@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Character {
 	private static Character character;
@@ -17,6 +18,18 @@ public class Character {
 	private Item[] item;//장착중인 아이템
 	private int[][] cLStatus = {{20, 0, 2, 2},{25,25,4,4},{30,30,6,6},{40,40,10,10}};//레벨업에따른 캐릭서 Status 설정 값 0918 이욱재 추가
 	
+	//옵저버
+	
+	public int getcLv() {
+		return cLv;
+	}
+	
+	public Character getCharacter() {
+		return character;
+	}
+	
+	//옵저버 종료
+
 	//캐릭터 생성 싱글톤
 	private Character(String cName) {//생성시 1레벨
 		this.cName = cName;
